@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Google Font (For Font Family) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (For Icons)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Date Range -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="flex header">
+            <div class="header-brand">
+                <!-- logo -->
+                <h1>Document</h1>
+            </div>
+
+
+            <div class="header-details flex">
+                <div class="header-pages ">
+                    <ul class="flex">
+                        <li><a href="#">Flights</a></li>
+                        <li><a href="#">Cruise</a></li>
+                        <li><a href="#">Deals <span class="fa fa-angle-down"></span></a></li>
+                    </ul>
+                </div>
+                <i class="fa-solid fa-phone-volume fa-shake fa-xl"
+                    style="color: var(--primary); margin-right: 10px;"></i>
+                <div class="header-call">
+                    <p>Call 24/7 for our Best Deals</p>
+                    <h2>+1-888-888-8888</h2>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Form Section 1 -->
+    <section class="section1">
+        <div class="container section1-container flex-column">
+            <div class="section1-heading flex-column">
+                <h1>Making Travel Easy</h1>
+                <h3>Book Cheap Flights Online</h3>
+            </div>
+            <div class="container">
+                <div class="tabs">
+                    <div class="tab active">Flights</div>
+                    <div class="tab">Hotels</div>
+                    <div class="tab">Cars</div>
+                    <div class="tab">Cruise</div>
+                </div>
+
+                <div class="search-form">
+                    <div class="trip-type">
+                        <div class="trip-option">
+                            <input type="radio" id="roundtrip" name="trip-type" checked>
+                            <label for="roundtrip">Round trip</label>
+                        </div>
+                        <div class="trip-option">
+                            <input type="radio" id="oneway" name="trip-type">
+                            <label for="oneway">One way</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="destination" placeholder="Origin">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="destination" placeholder="Destination">
+                        </div>
+                        <!-- <div class="input-group">
+                            <input type="date" id="dates" value="">
+                        </div> -->
+                        <div class="input-group">
+                            <input type="text" id="daterange" placeholder="Select Date Range">
+                        </div>
+                    </div>
+
+                    <div class="flex button-parent">
+                        <div class="passenger-selector">
+                            <div class="passenger-header" onclick="togglePassengerSelector()">
+                                <div>1 Adult, Economy</div>
+                                <div><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="passenger-content" id="passengerContent">
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Class</div>
+                                        <select>
+                                            <option selected>Economy</option>
+                                            <option>Premium Economy</option>
+                                            <option>Business</option>
+                                            <option>First</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Adult</div>
+                                    </div>
+                                    <div class="counter">
+                                        <button class="counter-btn" id="adultDec" disabled>-</button>
+                                        <span class="counter-value" id="adultCount">1</span>
+                                        <button class="counter-btn" id="adultInc">+</button>
+                                    </div>
+                                </div>
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Children (2-11)</div>
+                                        <div class="passenger-note">Children travel at a reduced fare</div>
+                                    </div>
+                                    <div class="counter">
+                                        <button class="counter-btn" id="childDec" disabled>-</button>
+                                        <span class="counter-value" id="childCount">0</span>
+                                        <button class="counter-btn" id="childInc">+</button>
+                                    </div>
+                                </div>
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Infant (on lap)</div>
+                                        <div class="passenger-note">Under 2 years, no separate seat</div>
+                                    </div>
+                                    <div class="counter">
+                                        <button class="counter-btn" id="infantLapDec" disabled>-</button>
+                                        <span class="counter-value" id="infantLapCount">0</span>
+                                        <button class="counter-btn" id="infantLapInc">+</button>
+                                    </div>
+                                </div>
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Infant (on seat)</div>
+                                        <div class="passenger-note">Under 2 years, with separate seat</div>
+                                    </div>
+                                    <div class="counter">
+                                        <button class="counter-btn" id="infantSeatDec" disabled>-</button>
+                                        <span class="counter-value" id="infantSeatCount">0</span>
+                                        <button class="counter-btn" id="infantSeatInc">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="search-btn">Search</button>
+                    </div>
+
+
+                </div>
+
+                <div class="reviews">
+                    <div class="review-card">
+                        <div class="review-title">Google</div>
+                        <div class="review-rating">4.1</div>
+                        <div class="review-count">Based on 1,605 Reviews</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-title">Trustpilot</div>
+                        <div class="review-rating">TrustScore 4.3</div>
+                        <div class="review-count">9,431 reviews</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-title">Sitejobber</div>
+                        <div class="review-rating">Instant Feedback</div>
+                        <div class="review-count">Based on 22,801 Reviews</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-title">GREVIEWS®</div>
+                        <div class="review-rating">4.7</div>
+                        <div class="review-count">Based on 4,585 Reviews</div>
+                    </div>
+                </div>
+                <div class="container mt-5">
+                    <div class="row flex">
+                        <div class="col flex-column px-5 text-center ">
+                            <img src="assets/images/flexpay-logo.webp" alt="" width="150px" height="50px">
+                            <h3 class="mt-10">Buy now, pay over time</h3>
+                            <p class="mt-10">Make monthly payments
+                                with no hidden fees</p>
+                        </div>
+                        <div class="col flex-column px-5  text-center">
+                            <img src="assets/images/customer-icon.webp" alt="" width="50px" height="50px">
+                            <h3 class="mt-10">Customer Support</h3>
+                            <p class="mt-10">Happy to help our customers with
+                                queries round the clock</p>
+                        </div>
+                        <div class="col flex-column px-5 text-center">
+                            <img src="assets/images/happy-cutomer.svg" alt="" width="50px" height="50px">
+                            <h3 class="mt-10">2 Million+
+                                Happy Travelers</h3>
+                            <p class="mt-10">Check out Reviews of our 2 Million+ Happy Travellers</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section2">
+
+        <div class="container section2-inner">
+            <h2>Cheap Airline Deals</h2>
+            <div class="grid mt-20">
+                <div class="section2-card section2-card-1">
+                    <h3>American Airlines</h3>
+                    <div class="section2-card-bottom flex">
+                        <div class="section2-card-bottom-left">
+                            <p>Starting From</p>
+                            <h2>$85.47*</h2>
+                        </div>
+                        <div class="section2-card-bottom-right">
+                            Book Now
+                        </div>
+                    </div>
+                </div>
+                <div class="section2-card section2-card-2">
+                    <h3>United Airlines</h3>
+                    <div class="section2-card-bottom flex">
+                        <div class="section2-card-bottom-left">
+                            <p>Starting From</p>
+                            <h2>$116.97*</h2>
+                        </div>
+                        <div class="section2-card-bottom-right">
+                            Book Now
+                        </div>
+                    </div>
+                </div>
+                <div class="section2-card section2-card-3">
+                    <h3>Frontier Airlines</h3>
+                    <div class="section2-card-bottom flex">
+                        <div class="section2-card-bottom-left">
+                            <p>Starting From</p>
+                            <h2>$62.95*</h2>
+                        </div>
+                        <div class="section2-card-bottom-right">
+                            Book Now
+                        </div>
+                    </div>
+                </div>
+                <div class="section2-card section2-card-4">
+                    <h3>Spirit Airlines</h3>
+                    <div class="section2-card-bottom flex">
+                        <div class="section2-card-bottom-left">
+                            <p>Starting From</p>
+                            <h2>$17.98*</h2>
+                        </div>
+                        <div class="section2-card-bottom-right">
+                            Book Now
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section3">
+        <div class="container section3-inner">
+            <div class="flex-column">
+                <div class="section3-header section3-header-1 ">
+                    Top International Flight Details
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/am.gif" alt="" width="50px">
+                    <h4>MTY - GDL</h4>
+                    <p>Aug 27 - Sep 01</p>
+                    <h4>$84.84</h4>
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/am.gif" alt="" width="50px">
+                    <h4>MTY - GDL</h4>
+                    <p>Aug 27 - Sep 01</p>
+                    <h4>$84.84</h4>
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/am.gif" alt="" width="50px">
+                    <h4>MTY - GDL</h4>
+                    <p>Aug 27 - Sep 01</p>
+                    <h4>$84.84</h4>
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/am.gif" alt="" width="50px">
+                    <h4>MTY - GDL</h4>
+                    <p>Aug 27 - Sep 01</p>
+                    <h4>$84.84</h4>
+                </div>
+            </div>
+            <div class="flex-column">
+                <div class=" section3-header section3-header-2">
+                    Top International Flight Details
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/nk.gif" alt="" width="50px">
+                    <h4>LAS - LAX</h4>
+                    <p>Aug 28 - Sep 01</p>
+                    <h4>$48.60</h4>
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/nk.gif" alt="" width="50px">
+                    <h4>LAS - LAX</h4>
+                    <p>Aug 28 - Sep 01</p>
+                    <h4>$48.60</h4>
+                </div>
+                <div class="section3-list flex">
+                    <img src="assets/images/nk.gif" alt="" width="50px">
+                    <h4>LAS - LAX</h4>
+                    <p>Aug 28 - Sep 01</p>
+                    <h4>$48.60</h4>
+                </div>
+
+                <div class="section3-list flex">
+                    <img src="assets/images/nk.gif" alt="" width="50px">
+                    <h4>LAS - LAX</h4>
+                    <p>Aug 28 - Sep 01</p>
+                    <h4>$48.60</h4>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+    <section class="section4">
+        <div class="container section4-inner">
+            <p><span>*Note: All fares are quoted in USD.</span></p>
+            <p>Last updated on <span>Monday 08/25/2025 at 05:00 AM,</span> the fares mentioned above are for flight
+                tickets and
+                inclusive of fuel surcharges, service fee and taxes . Based on historical data, these fares are subject
+                to change without prior notice and cannot be guaranteed at the time of booking. Kindly go through our
+                terms and conditions before booking.</p>
+
+            <div class="section4-banner">
+                <div class="section4-banner-img">
+                    <img src="assets/images/airplane.png" alt="" width="220px">
+                </div>
+                <div class="section4-banner-text">
+                    <h1>Heavily Discounted Fares!!</h1>
+                    <p>Speak to our agents for exclusive deals</p>
+                    <div class="call-now">
+                        Call Now
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="section5">
+        <div class="container section5-inner">
+            <div class="section5-card">
+                <h2>Last Minute Flight Deals</h2>
+                <div class="section5-card-image card-image-1">
+                </div>
+                <div class="view-more"><a href="#">+ View More</a></div>
+            </div>
+            <div class="section5-card">
+                <h2>Deal Under $199</h2>
+                <div class="section5-card-image card-image-2">
+                </div>
+                <div class="view-more"><a href="#">+ View More</a></div>
+            </div>
+            <div class="section5-card">
+                <h2>Student Travel Deals</h2>
+                <div class="section5-card-image card-image-3">
+                </div>
+                <div class="view-more"><a href="#">+ View More</a></div>
+            </div>
+            <div class="section5-card">
+                <h2>Top Airline Deals</h2>
+                <div class="section5-card-image card-image-4">
+                </div>
+                <div class="view-more"><a href="#">+ View More</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="section3 container">
+        <h2>Deals from Top Rated Hotels</h2>
+        <div class="container section3-inner">
+
+            <div class="flex-column">
+                <div class="section3-header section3-header-3 ">
+                    Domestic Hotels
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-column">
+                <div class=" section3-header section3-header-4">
+                    International Hotels
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+                <div class="section3-list flex">
+                    <div class="section3-list-details">
+                        <h3>Quality Hotel Ulstein</h3>
+                        <p class="mt-10"><i class="fa-solid fa-location-dot fa-sm" style="color: var(--primary);"></i>
+                            Sjøgata 10,
+                            Ulsteinvik , NO, 6065</p>
+                    </div>
+                    <div class="section3-list-price">
+                        <p>Staring From</p>
+                        <h2>$175.03</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+    <section class="section7">
+        <div class="container section7-inner flex-column">
+            <h1>Here's What Our Customers Have to Say</h1>
+            <div class="flex section7-favicon ">
+                <img src="assets/images/tp-logo.webp" alt="" width="150px" height="30px">
+                <img src="assets/images/stars-4.5.svg" alt="" width="150px" height="30px">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="section8">
+        <div class="section8-inner container">
+            <div>
+                <p><strong>Find Cheap Flights & Travel Deals at Document</strong></p>
+                <p>Looking for the cheapest flights to your dream destination? You've come to the right place! At
+                    Document, we specialize in finding you the best travel deals on airline tickets to
+                    destinations across the globe. Whether planning a quick weekend getaway, a long-awaited vacation, or
+                    a business trip, we help you book affordable flights hassle-free. Our cutting-edge technology
+                    ensures a fast, safe, and seamless flight booking experience, allowing you to find the best airfares
+                    with just a few clicks.</p>
+                <p>We take pride in offering world-class customer service and providing assistance at every step of your
+                    booking journey. Whether you need help finding the right flight, understanding airline policies, or
+                    managing changes to your itinerary, our dedicated support team is available 24/7 to help.</p>
+                <p>At Document, we curate the cheapest flight options by partnering with top airlines and
+                    travel providers, ensuring that you get access to exclusive discounts and unbeatable fares. With our
+                    extensive network of travel partners, we bring you the most affordable and convenient flight deals
+                    so you can travel more and spend less.</p>
+                <p><strong>When to Buy Airline Tickets</strong></p>
+                <p>Timing is key when booking flights. Based on recent travel trends, the best time to book domestic
+                    flights is 28 days before departure, while international airfare is typically cheaper when purchased
+                    60 to 120 days in advance. Additionally, Sundays are often the most budget-friendly day to book
+                    tickets, making it easier to find cheap flights and secure the lowest fares.</p>
+                <p><strong>How to Find the Best Flight Deals</strong></p>
+                <p>Scoring the best airfare isn't just about booking in advanceâ€”it's also about knowing where to look
+                    and what to consider. Here are some expert tips:</p>
+                <ul>
+                    <li><strong>Compare Multiple Airlines</strong> - Different airlines offer varying ticket prices,
+                        amenities, and baggage policies. We make it easy to compare them all in one place.</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Be Flexible with Dates</strong> - Midweek flights (Tuesdays and Wednesdays) are more
+                        affordable than weekend travel..</li>
+                    <li><strong>Consider Alternate Airports</strong> - Flying out of or into nearby airports could save
+                        you big.</li>
+                    <li><strong>Use Travel Deals & Discounts</strong> - Stay updated with our latest promotions and
+                        exclusive airline deals to maximize savings.</li>
+                </ul>
+                <p><strong>Top Destinations to Explore</strong></p>
+                <p>We have flight deals that fit your budget no matter where you're headed. Popular destinations among
+                    travelers include New York City, where you can experience the energy of the Big Apple; Las Vegas,
+                    the world's entertainment capital; and Orlando, a perfect destination for theme park lovers and
+                    family vacations. Los Angeles offers sun-soaked beaches and Hollywood glamour, while Cancun invites
+                    travelers to relax on pristine beaches with stunning ocean views. London is a must-visit for those
+                    looking to explore internationally for history, culture, and vibrant city life.</p>
+                <p><strong>Understanding Flight Cancellations & Refunds</strong></p>
+                <p>Plans change, and sometimes, you may need to cancel your flight. Many airlines allow cancellations or
+                    modifications depending on the fare type and airline policy. Before booking, always check the
+                    cancellation policy to know your options. Some flights may be eligible for refunds, while others may
+                    offer travel credits for future bookings.</p>
+                <p><strong>Why Book with Document?</strong></p>
+                <p>At Document, we take the stress out of booking flights by offering:</p>
+
+                <ul>
+                    <li>A vast selection of airlines with competitive fares.</li>
+                    <li>24/7 customer support to assist with all your travel needs.</li>
+                    <li>Flexible search filters to help you find flights that fit your schedule and budget.</li>
+                    <li>Exclusive discounts and last-minute deals to make travel more affordable.</li>
+                </ul>
+                <p>Don't overpay for airline tickets-find your cheap flight today with Document and start your
+                    journey for less!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-newsletter">
+                <div class="flex footer-newsletter-1">
+                    <i class="fa-solid fa-bell fa-shake fa-2xl"
+                        style="color: var(--accent-dark); margin-right: 20px;"></i>
+                    <div>
+                        <h2>Subscribe to our Newsletter</h2>
+                        <h3>Get latest offers from Cheapflightsfares</h3>
+                    </div>
+                </div>
+
+                <div class="flex-column footer-newsletter-2">
+                    <form action="" class="flex footer-newsletter-1">
+                        <input type="email" placeholder="Example@gmail.com">
+                        <select name="" id="">
+                            <option value="United States" selected>United States</option>
+                            <option value="India">India</option>
+
+                        </select>
+                        <button>Submit</button>
+                    </form>
+                    <p><input type="checkbox" name="option1" value="Option 1" checked> I would like to receive email
+                        from
+                        Cheapflightsfares.com with the latest offers and promotions. See our privacy policy</p>
+
+                    <p><input type="checkbox" name="option1" value="Option 1" checked> I have read and agree to the
+                        terms and
+                        conditions .</p>
+                </div>
+            </div>
+            <div class="footer-links mt-40">
+                <div class="footer-link">
+                    <p><strong>QUICK LINKS</strong></p>
+                    <p><a href="#">Popular Airlines</a></p>
+                    <p><a href="#">Popular Flight Routes</a></p>
+                    <p><a href="#">Top U.S. Destinations</a></p>
+                    <p><a href="#">Top International Destinations</a></p>
+                    <p><a href="#">Top Airports</a></p>
+                    <p><a href="#">Cruise</a></p>
+                </div>
+                <div class="footer-link">
+                    <p><strong>BOOK</strong></p>
+                    <p><a href="#">Cheap Flights</a></p>
+                    <p><a href="#">Cheap Hotels</a></p>
+                    <p><a href="#">Cheap Rentals</a></p>
+                    <p><a href="#">Group Travel</a></p>
+                </div>
+                <div class="footer-link">
+                    <p><strong>TRAVEL TOOLS</strong></p>
+                    <p><a href="#">Customer Support</a></p>
+                    <p><a href="#">Online Check-in</a></p>
+                    <p><a href="#">Airline Baggage Fees</a></p>
+                    <p><a href="#">Travel Blog</a></p>
+                    <p><a href="#">Cutomer Reviews</a></p>
+                    <p><a href="#">Browser Compatiblity</a></p>
+                </div>
+                <div class="footer-link">
+                    <p><strong>ABOUT</strong></p>
+                    <p><a href="#">About Us</a></p>
+                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="#">Site Map</a></p>
+                </div>
+                <div class="footer-link">
+                    <p><strong>LEGAL</strong></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                    <p><a href="#">Taxes & Fees</a></p>
+                    <p><a href="#">Post-Ticketing Fees</a></p>
+                    <p><a href="#">Affiliate Program</a></p>
+                    <p><a href="#">Your California Privacy Rights</a></p>
+                    <p><a href="#">Travel Now, Pay Later</a></p>
+                </div>
+            </div>
+            <div class="footer-follow mt-40">
+                <h3>Follow us on</h3>
+                <div class="flex footer-newsletter-1 footer-follow-icon">
+                    <i class="fa-brands fa-square-facebook fa-2xl" style="color: var(--accent-dark);"></i>
+                    <i class="fa-brands fa-square-x-twitter fa-2xl" style="color: var(--accent-dark);"></i>
+                    <i class="fa-brands fa-linkedin fa-2xl" style="color: var(--accent-dark);"></i>
+                    <i class="fa-brands fa-square-instagram fa-2xl" style="color: var(--accent-dark);"></i>
+                    <i class="fa-brands fa-square-pinterest fa-2xl" style="color: var(--accent-dark);"></i>
+                    <i class="fa-brands fa-youtube fa-2xl" style="color: var(--accent-dark);"></i>
+
+                </div>
+            </div>
+            <p class="mt-40">Cheapflightsfares is an independent travel portal with no third party association. By using
+                Cheapflightsfares.com, you agree that Cheapflightsfares is not accountable for any loss - direct or
+                indirect, arising of offers, materials or links to other sites found on this website. In case of
+                queries,
+                reach us directly at our Contact Number +1-216-302-2732 or, simply email at
+                support@cheapflightsfares.com</p>
+        </div>
+    </footer>
+
+    <!-- section 9 -->
+    <section class="section9">
+        <div class="container section9 flex-column">
+            <div class="section9-icons">
+                <div class="section9-icons-1">
+                    <img src="assets/images/IATA.webp" alt="" width="100%" height="40px">
+                    <img src="assets/images/arc.png" alt="" width="100%" height="40px">
+                    <img src="assets/images/cloudflare.webp" alt="" width="100%" height="40px">
+                    <img src="assets/images/digicert.webp" alt="" width="100%" height="40px">
+                    <img src="assets/images/PCI.webp" alt="" width="100%" height="40px">
+                </div>
+                <div>
+                    <img src="assets/images/payment.png" alt="" width="100%">
+                </div>
+            </div>
+
+            <p class="mt-10">Copyright © 2013 - 2025 Document | All Rights Reserved.</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Bootstrap -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> -->
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
