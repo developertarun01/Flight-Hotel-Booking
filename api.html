@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      border: none;
+      background: #3498db;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .result img {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🌤 Weather App</h2>
+    <input type="text" id="locationInput" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    async function getWeather() {
+      const location = document.getElementById("locationInput").value;
+      const apiKey = "2d71d43243004c0784852936252708"; // your API key
+      const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.error) {
+          document.getElementById("result").innerHTML = `<p style="color:red;">${data.error.message}</p>`;
+          return;
+        }
+
+        document.getElementById("result").innerHTML = `
+          <h3>${data.location.name}, ${data.location.country}</h3>
+          <p><b>Temperature:</b> ${data.current.temp_c} °C</p>
+          <p><b>Condition:</b> ${data.current.condition.text} <img src="${data.current.condition.icon}" /></p>
+          <p><b>Humidity:</b> ${data.current.humidity}%</p>
+          <p><b>Wind:</b> ${data.current.wind_kph} kph</p>
+          <p><b>Air Quality (PM2.5):</b> ${data.current.air_quality.pm2_5.toFixed(2)}</p>
+          <p><b>Last Updated:</b> ${data.current.last_updated}</p>
+        `;
+      } catch (error) {
+        document.getElementById("result").innerHTML = `<p style="color:red;">Something went wrong!</p>`;
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>

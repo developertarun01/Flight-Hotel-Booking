@@ -1,3 +1,21 @@
+// Deals
+document.getElementById("deals").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const allDeals = document.getElementById("all-deals");
+    const currentDisplay = window.getComputedStyle(allDeals).display;
+
+
+
+    if (currentDisplay === "none") {
+        allDeals.style.display = "grid";  // show
+    } else {
+        allDeals.style.display = "none";  // hide
+    }
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     flatpickr('#daterange', {
         mode: 'range',
@@ -8,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.getElementById("dates").valueAsDate = new Date();
+// document.getElementById("dates").valueAsDate = new Date();
 
 // form-options active 
 const options = document.querySelectorAll(".form-options li");
@@ -67,3 +85,4 @@ setupCounter('infantSeatDec', 'infantSeatInc', 'infantSeatCount');
 
 // Update header when class changes
 document.querySelector('select').addEventListener('change', updatePassengerHeader);
+

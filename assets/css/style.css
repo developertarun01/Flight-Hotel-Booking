@@ -127,9 +127,6 @@ body {
   color: var(--primary);
 }
 
-.header-details {
-}
-
 .header-call h2 {
   color: var(--primary);
 }
@@ -137,6 +134,56 @@ body {
 .header-call p {
   font-size: 13px;
   text-align: center;
+}
+
+.all-deals {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  /* display: grid; */
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  max-width: 1100px;
+}
+
+.all-deals-inner {
+  background-color: var(--background);
+  padding: 20px;
+}
+
+.all-deals-inner-1 {
+  background-color: var(--text-light);
+}
+
+.all-deals-inner ul li {
+  list-style: none;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.all-deals-inner ul li a {
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.all-deals-inner ul li a:hover {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 655px) {
+  .header-details {
+    position: fixed;
+    margin-top: 500px;
+    background-color: var(--background);
+    flex-direction: column;
+    padding: 20px;
+  }
+  .header-call-button {
+    margin: 50px 0;
+  }
 }
 
 /* Form Section 1  */
@@ -507,6 +554,11 @@ input[type="date"] {
   margin-top: 10px;
 }
 
+.call-now:hover {
+  background-color: var(--accent);
+  cursor: pointer;
+}
+
 /* Section 5 */
 .section5-inner {
   display: grid;
@@ -672,7 +724,7 @@ footer {
 }
 
 /* 📱 Mobile Devices (up to 767px) */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   body {
     font-size: 14px;
   }
@@ -697,14 +749,8 @@ footer {
   .grid {
     grid-template-columns: 1fr; /* single column */
   }
-}
 
-/* 📲 Tablets (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  body {
-    font-size: 16px;
-  }
-  .container {
-    padding: 20px;
+  .footer-newsletter-2 {
+    display: none;
   }
 }
