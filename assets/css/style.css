@@ -673,6 +673,10 @@ input[type="date"] {
   .section3-list {
     padding: 10px;
   }
+  
+  .section2-card {
+    height: 250px;
+  }
 }
 
 /* Section 4 */
