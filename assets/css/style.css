@@ -460,6 +460,22 @@ input[type="date"] {
   .review-card {
     min-width: 0;
   }
+
+  .button-parent {
+    flex-direction: column;
+  }
+
+  .passenger-selector {
+    width: 100%;
+  }
+
+  .passenger-content {
+    width: 75.5%;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
 }
 
 /* Section 2 */
