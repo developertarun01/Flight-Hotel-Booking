@@ -78,18 +78,19 @@ function setupCounter(decBtnId, incBtnId, countId, min = 0, max = 9) {
 // Update passenger header text
 function updatePassengerHeader() {
     const adultCount = document.getElementById('adultCount').textContent;
+    const childCount = document.getElementById('childCount').textContent;
+    const infantLapCount = document.getElementById('infantLapCount').textContent;
     const classSelect = document.querySelector('select');
     const selectedClass = classSelect.options[classSelect.selectedIndex].text;
 
     const passengerHeader = document.querySelector('.passenger-header div:first-child');
-    passengerHeader.textContent = `${adultCount} Adult, ${selectedClass}`;
+    passengerHeader.textContent = `${selectedClass}, ${adultCount} Adult, ${childCount} Child, ${infantLapCount} Infant`;
 }
 
 // Initialize counters
 setupCounter('adultDec', 'adultInc', 'adultCount', 1);
 setupCounter('childDec', 'childInc', 'childCount');
 setupCounter('infantLapDec', 'infantLapInc', 'infantLapCount');
-setupCounter('infantSeatDec', 'infantSeatInc', 'infantSeatCount');
 
 // Update header when class changes
 document.querySelector('select').addEventListener('change', updatePassengerHeader);
