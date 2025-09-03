@@ -1,3 +1,12 @@
+const hamMenu = document.querySelector('.ham-menu');
+const details = document.querySelector('.header-details');
+
+hamMenu.addEventListener("click", () => {
+    hamMenu.classList.toggle('active');
+    details.classList.toggle('active');
+})
+
+
 // Deals
 document.getElementById("deals").addEventListener("click", function (e) {
     e.preventDefault();

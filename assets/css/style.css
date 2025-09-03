@@ -110,7 +110,7 @@ body {
 
 .header {
   justify-content: space-between;
-  padding: 5px 20px;
+  padding: 10px 20px;
   background-color: var(--text-light);
 }
 
@@ -181,17 +181,105 @@ body {
   font-weight: 600;
 }
 
+.ham-menu {
+  display: none;
+}
+
 @media (max-width: 655px) {
   .header-details {
-    top: 0;
-    display: none;
-    position: fixed;
-    background-color: var(--background);
-    flex-direction: column;
-    padding: 20px;
-    height: 100vh;
+    background-color: var(--primary);
+    height: 100%;
     width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease;
   }
+
+  .header-details.active {
+    right: 0;
+    color: white;
+    overflow: hidden;
+  }
+
+  .all-deals {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 50%;
+    gap: 0;
+  }
+
+  body.active {
+    overflow: hidden;
+  }
+
+  .header-pages ul {
+    /* flex-direction: column; */
+  }
+
+  .header-call h2 {
+    color: white;
+    margin-top: 20px;
+    font-size: 40px;
+  }
+
+  .header-pages ul li a {
+    color: white;
+  }
+
+  .header-pages ul li a:hover {
+    color: white;
+  }
+  .ham-menu {
+    height: 40px;
+    width: 30px;
+    margin-left: auto;
+    position: relative;
+    display: block;
+  }
+
+  .ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+  }
+
+  .ham-menu span:nth-child(1) {
+    top: 25%;
+  }
+
+  .ham-menu span:nth-child(3) {
+    top: 75%;
+  }
+
+  .ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: white;
+  }
+
+  .ham-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background-color: white;
+  }
+
   .header-call-button {
     margin: 50px 0;
   }
