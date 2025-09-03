@@ -53,6 +53,10 @@ body {
   margin-bottom: 10px !important;
 }
 
+.mb-15 {
+  margin-bottom: 15px !important;
+}
+
 .mt-20 {
   margin-top: 20px !important;
 }
@@ -457,6 +461,11 @@ input[type="date"] {
     gap: 5;
   }
 
+  .header-brand h1 {
+    font-size: 30px;
+    padding: 10px 0;
+  }
+
   .review-card {
     min-width: 0;
   }
@@ -570,7 +579,7 @@ input[type="date"] {
 @media (max-width: 655px) {
   .section3-inner {
     grid-template-columns: 1fr;
-    padding: 10px 0 !important;
+    /* padding: 10px 0 !important; */
   }
 }
 
