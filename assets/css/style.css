@@ -187,7 +187,7 @@ body {
 
 @media (max-width: 655px) {
   .header-details {
-    background-color: var(--primary);
+    background-color: var(--text-light);
     height: 100%;
     width: 100%;
     max-width: 450px;
@@ -205,14 +205,14 @@ body {
 
   .header-details.active {
     right: 0;
-    color: white;
     overflow: hidden;
   }
 
   .all-deals {
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 50%;
-    gap: 0;
+    grid-template-columns: 1fr;
+    width: 50%;
+    left: 23%;
+    top: 0;
   }
 
   body.active {
@@ -224,17 +224,8 @@ body {
   }
 
   .header-call h2 {
-    color: white;
     margin-top: 20px;
-    font-size: 40px;
-  }
-
-  .header-pages ul li a {
-    color: white;
-  }
-
-  .header-pages ul li a:hover {
-    color: white;
+    font-size: 33px;
   }
   .ham-menu {
     height: 40px;
@@ -267,7 +258,6 @@ body {
   .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    background-color: white;
   }
 
   .ham-menu.active span:nth-child(2) {
@@ -277,8 +267,13 @@ body {
   .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
-    background-color: white;
   }
+
+  .fa-solid {
+    font-size: 40px;
+  }
+
+  
 
   .header-call-button {
     margin: 50px 0;
