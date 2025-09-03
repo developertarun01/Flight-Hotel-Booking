@@ -1,19 +1,18 @@
 const hamMenu = document.querySelector('.ham-menu');
 const details = document.querySelector('.header-details');
+const allDeals = document.getElementById("all-deals");
 
 hamMenu.addEventListener("click", () => {
     hamMenu.classList.toggle('active');
     details.classList.toggle('active');
-})
-
+    allDeals.style.display = "none";  // hide
+});
 
 // Deals
 document.getElementById("deals").addEventListener("click", function (e) {
     e.preventDefault();
 
-    const allDeals = document.getElementById("all-deals");
     const currentDisplay = window.getComputedStyle(allDeals).display;
-
 
 
     if (currentDisplay === "none") {
