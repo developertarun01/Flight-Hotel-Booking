@@ -574,6 +574,15 @@ input[type="tel"] {
     gap: 5;
   }
 
+  .section1-heading h1 {
+    font-size: 30px;
+  }
+
+  .section1-heading h3 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
   .input-group select {
     width: 100%;
     /* margin-bottom: 20px; */
