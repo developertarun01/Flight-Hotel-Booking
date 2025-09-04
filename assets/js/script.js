@@ -1,3 +1,29 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".good-cards .col");
+    let index = 0;
+
+    function showCard(i) {
+        cards.forEach((card, idx) => {
+            card.classList.toggle("active", idx === i);
+        });
+    }
+
+    function autoSlide() {
+        index = (index + 1) % cards.length;
+        showCard(index);
+    }
+
+    // Mobile only
+    if (window.innerWidth < 768) {
+        showCard(index);              // show first card
+        setInterval(autoSlide, 3000); // change every 3s
+    } else {
+        // On desktop, keep all visible
+        cards.forEach(card => card.classList.add("active"));
+    }
+});
+
+
 // Switch Active Class 
 const tabs = document.querySelectorAll('.tab');
 const flights = document.getElementById('flightForm');
@@ -213,4 +239,5 @@ if (roomSelectHotel) {
     roomSelectHotel.addEventListener('change', updatePassengerHeaderHotel);
 }
 
+console.log("ALL WORKING !!!");
 

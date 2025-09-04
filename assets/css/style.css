@@ -567,6 +567,57 @@ input[type="tel"] {
   margin: 20px;
 }
 
+.good-cards {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.good-cards .col {
+  display: none; /* hide all by default */
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.good-cards .col.active {
+  display: flex; /* show only active */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.6s ease;
+  background-color: var(--background);
+  border-radius: 10px;
+  padding: 40px 30px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Desktop view: show all side by side */
+@media (min-width: 768px) {
+  .good-cards {
+    display: flex;
+    overflow: visible;
+  }
+  .good-cards .col {
+    display: flex !important;
+    flex: 1;
+    animation: none;
+  }
+
+  .good-cards .col.active {
+    animation: none;
+  }
+}
+
 @media (max-width: 655px) {
   .reviews {
     grid-template-columns: 1fr;
