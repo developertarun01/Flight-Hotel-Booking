@@ -1,3 +1,12 @@
+// Start from Section 1
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.innerWidth <= 768) { // check for mobile screen
+        document.querySelector(".section1").scrollIntoView({ behavior: "smooth" });
+    }
+});
+
+
+// Review Card Slide
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".good-cards .col");
     let index = 0;

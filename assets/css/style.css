@@ -290,8 +290,12 @@ body {
 /* Form Section 1  */
 .section1 {
   /* height: 70vh; */
-  background: linear-gradient(to bottom, transparent 60%, var(--text-light) 40%),
+  background: linear-gradient(to bottom, transparent 70%, var(--text-light) 30%),
     url("../images/beach6.jpg") center/cover no-repeat;
+}
+
+.all-forms {
+  border-radius: 50px;
 }
 
 .section1-heading {
@@ -339,6 +343,7 @@ body {
   background: var(--text-light);
   color: var(--text-dark);
   padding: 0;
+  border-radius: 10px 10px 0 0;
 }
 
 .tab {
@@ -362,6 +367,7 @@ body {
 .search-form {
   padding: 25px;
   background: var(--background);
+  border-radius: 0px 0px 10px 10px;
 }
 
 .trip-type {
@@ -588,6 +594,11 @@ input[type="tel"] {
   background-color: var(--background);
   border-radius: 10px;
   padding: 40px 30px;
+  margin-bottom: 10px;
+}
+
+.all-reviews {
+  background-color: white;
 }
 
 @keyframes fadeIn {
@@ -615,13 +626,15 @@ input[type="tel"] {
 
   .good-cards .col.active {
     animation: none;
+    background-color: white;
+    margin-bottom: 0px;
   }
 }
 
 @media (max-width: 655px) {
   .reviews {
-    grid-template-columns: 1fr;
-    padding: 10px 0;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
     gap: 5;
   }
 
