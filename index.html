@@ -7,9 +7,10 @@
     <title>Document</title>
 
     <!-- Google Font (For Font Family) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet"> -->
 
     <!-- Font Awesome (For Icons)-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -27,7 +28,6 @@
 </head>
 
 <body>
-
 
     <!-- Header Section -->
     <header>
@@ -151,7 +151,8 @@
                     <div class="tab">Cruise</div>
                 </div>
 
-                <div class="search-form">
+                <!-- Flight Form  -->
+                <div class="search-form" id="flightForm">
                     <div class="trip-type">
                         <div class="trip-option">
                             <input type="radio" id="roundtrip" name="trip-type" checked>
@@ -176,9 +177,6 @@
                         <div class="input-group">
                             <input type="text" id="daterange" placeholder="Select Date Range">
                         </div>
-                    </div>
-
-                    <div class="flex button-parent">
                         <div class="passenger-selector">
                             <div class="passenger-header" onclick="togglePassengerSelector()">
                                 <div>Economy, 1 Adult</div>
@@ -231,31 +229,224 @@
                             </div>
 
                         </div>
-                        <button class="search-btn">Search</button>
+                        <div class="input-group">
+                            <button class="search-btn">Search</button>
+                        </div>
                     </div>
 
+                    <div class="flex button-parent">
+
+                    </div>
+
+                </div>
+
+                <!-- Hotel Form  -->
+                <div class="search-form" id="hotelForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="destination" placeholder="Your Destination">
+                        </div>
+                        <div class="input-group">
+                            <input type="date" class="currentDate">
+                        </div>
+                        <div class="input-group">
+                            <input type="date" class="nextDate">
+                        </div>
+                        <div class="passenger-selector">
+                            <div class="passenger-header" onclick="togglePassengerSelectorHotel()">
+                                <div id="hotelDetails">1 Room, 1 Adults, 0 Child</div>
+                                <div><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="passenger-content" id="passengerContentHotel">
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Room</div>
+                                        <select id="roomNumber">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Adult</div>
+                                    </div>
+                                    <div class="counter">
+                                        <button class="counter-btn" id="adultDecHotel" disabled>-</button>
+                                        <span class="counter-value" id="adultCountHotel">1</span>
+                                        <button class="counter-btn" id="adultIncHotel">+</button>
+                                    </div>
+                                </div>
+                                <div class="passenger-row">
+                                    <div>
+                                        <div class="passenger-type">Children</div>
+                                        <div class="passenger-note">Children Room at a reduced fare</div>
+                                    </div>
+                                    <div class="counter">
+                                        <button class="counter-btn" id="childDecHotel" disabled>-</button>
+                                        <span class="counter-value" id="childCountHotel">0</span>
+                                        <button class="counter-btn" id="childIncHotel">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="input-group">
+                            <button class="search-btn">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="flex button-parent">
+
+                    </div>
+
+
+                </div>
+
+                <!-- Car Form  -->
+                <div class="search-form" id="carForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="destination" placeholder="Pick Up Location">
+                        </div>
+                        <div class="input-group">
+                            <input type="date" class="currentDate">
+                        </div>
+                        <div class="input-group">
+                            <input type="time" class="currentTime">
+                        </div>
+                        <div class="input-group">
+                            <input type="date" class="nextDate">
+                        </div>
+                        <div class="input-group">
+                            <input type="time" class="currentTime">
+                        </div>
+                        <div class="input-group">
+                            <select name="" id="">
+                                <option value="" selected>Age Between 30-60</option>
+                                <option value="">Age Below 30</option>
+                                <option value="">Age Above 60</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <button class="search-btn">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="flex button-parent">
+
+                    </div>
+
+                </div>
+
+                <!-- Cruise Form  -->
+                <div class="search-form" id="cruiseForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <select name="" id="">
+                                <option value="" disabled selected hidden>Destination</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Mumbai">Mumbai</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <select name="" id="">
+                                <option value="" disabled selected hidden>Cruise Line</option>
+                                <option value="American">American</option>
+                                <option value="Disney">Disney</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <select name="" id="">
+                                <option value="" disabled selected hidden>Ship Name</option>
+                                <option value="Amabello">Amabello</option>
+                                <option value="Amacello">Amacello</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <select name="" id="">
+                                <option value="" disabled selected hidden>Number of Nights</option>
+                                <option value="1-2 Nights">1-2 Nights</option>
+                                <option value="3-5 Nights">3-5 Nights</option>
+                                <option value="6-9 Nights">6-9 Nights</option>
+                                <option value="10-15 Nights">10-15 Nights</option>
+                                <option value="15+ Nights">15+ Nights</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="name" placeholder="Name">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="email" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" placeholder="+91 9876543210">
+                        </div>
+                        <div class="input-group">
+                            <button class="search-btn">Search</button>
+                        </div>
+
+                    </div>
+
+                    <div class="flex button-parent">
+
+                    </div>
 
                 </div>
 
                 <div class="reviews">
                     <div class="review-card">
                         <div class="review-title">Google</div>
-                        <div class="review-rating">4.1</div>
+                        <div class="flex stars">
+                            <i class="fa-solid fa-star fa-lg" style="color: goldenrod;"></i>
+                            <i class="fa-solid fa-star fa-lg" style="color: goldenrod;"></i>
+                            <i class="fa-solid fa-star fa-lg" style="color: goldenrod;"></i>
+                            <i class="fa-solid fa-star fa-lg" style="color: goldenrod;"></i>
+                            <i class="fa-regular fa-star fa-lg" style="color: goldenrod;"></i>
+                        </div>
+                        <div class="review-rating" style="color: goldenrod;">Score 4.1/5</div>
+
                         <div class="review-count">Based on 1,605 Reviews</div>
                     </div>
                     <div class="review-card">
                         <div class="review-title">Trustpilot</div>
-                        <div class="review-rating">TrustScore 4.3</div>
+                        <div class="flex stars">
+                            <i class="fa-solid fa-star  fa-lg" style="color: green;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: green;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: green;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: green;"></i>
+                            <i class="fa-solid fa-star-half-stroke -fade fa-lg" style="color: green;"></i>
+                        </div>
+                        <div class=" review-rating " style="color: green;">TrustScore 4.3/5</div>
                         <div class="review-count">9,431 reviews</div>
                     </div>
                     <div class="review-card">
                         <div class="review-title">Sitejobber</div>
-                        <div class="review-rating">Instant Feedback</div>
+                        <div class="flex stars">
+                            <i class="fa-solid fa-star  fa-lg" style="color: orangered;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: orangered;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: orangered;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: orangered;"></i>
+                            <i class="fa-solid fa-star-half-stroke -fade fa-lg" style="color: orangered;"></i>
+                        </div>
+                        <div class="review-rating" style="color: orangered;">Feedback 4.5/5</div>
                         <div class="review-count">Based on 22,801 Reviews</div>
                     </div>
                     <div class="review-card">
-                        <div class="review-title">GREVIEWS®</div>
-                        <div class="review-rating">4.7</div>
+                        <div class="review-title">Reviews.io</div>
+                        <div class="flex stars">
+                            <i class="fa-solid fa-star  fa-lg" style="color: black;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: black;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: black;"></i>
+                            <i class="fa-solid fa-star  fa-lg" style="color: black;"></i>
+                            <i class="fa-solid fa-star-half-stroke -fade fa-lg" style="color: black;"></i>
+                        </div>
+                        <div class="review-rating" style="color: black;">Reviews 4.7/5</div>
                         <div class="review-count">Based on 4,585 Reviews</div>
                     </div>
                 </div>
@@ -281,6 +472,35 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Learning Cards  -->
+                <!-- <div class="container-1">
+                    <div class="wrapper">
+                        <div class="car-list">
+                            <div class="card">
+                                <div-card-image>
+                                    <img src="assets/images/plane1.jpg" alt="Plain 1">
+                                    <p class="card-tag">Plain 1</p>
+                                </div-card-image>
+                                <div class="card-content">
+                                    <h3 class="card-tittle">Best</h3>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        Eligendi, ipsa?</p>
+                                    <div class="card-footer">
+                                        <div class="car-profile">
+                                            <img src="assets/images/plane1.jpg" alt="Plain 1">
+                                            <div class="card-profile-info">
+                                                <span class="card-profile-nmae">Plain 1</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="card-button">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
 
             </div>
     </section>
@@ -439,7 +659,7 @@
     <section class="section5">
         <div class="container section5-inner">
             <div class="section5-card">
-                <h2>Last Minute Flight Deals</h2>
+                <h2>Last Minute Deals</h2>
                 <div class="section5-card-image card-image-1">
                 </div>
                 <div class="view-more"><a href="#">+ View More</a></div>
