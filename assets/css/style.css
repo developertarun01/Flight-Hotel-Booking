@@ -539,7 +539,7 @@ input[type="tel"] {
 .reviews {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  padding: 25px;
+  padding: 0 25px;
   background: var(--text-light);
   flex-wrap: wrap;
   gap: 20px;
@@ -634,7 +634,7 @@ input[type="tel"] {
 @media (max-width: 655px) {
   .reviews {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10px;
+    padding: 10px 20px;
     gap: 5;
   }
 

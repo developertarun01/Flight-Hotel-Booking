@@ -1,9 +1,9 @@
 // Start from Section 1
-document.addEventListener("DOMContentLoaded", function () {
-    if (window.innerWidth <= 768) { // check for mobile screen
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth <= 655) {
         document.querySelector(".section1").scrollIntoView({ behavior: "smooth" });
     }
-});
+})
 
 
 // Review Card Slide
